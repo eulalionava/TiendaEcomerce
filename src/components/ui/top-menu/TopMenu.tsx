@@ -17,14 +17,14 @@ export const TopMenu=()=> {
                     <span className={`${titleFont.className} antialiased font-bold`}>
                         Teslo
                     </span>
-                    <span> 1 Shop</span>
+                    <span> | Shop</span>
                 </Link>
             </div>
 
             <div className='hidden sm:block'>
                 <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href="/category/men">Hombres</Link>
                 <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href="/category/women">Mujeres</Link>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href="/category/kids">Niños</Link>
+                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href="/category/kid">Niños</Link>
             </div>
 
             <div className='flex items-center'>
