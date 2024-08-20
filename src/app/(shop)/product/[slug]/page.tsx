@@ -2,7 +2,7 @@ import { initialData } from "@/seed/seed";
 
 
 import { titleFont } from "@/config/fonts";
-import { QuantitySelector, SizeSelector } from "@/components";
+import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
 import { notFound } from "next/navigation";
 
 interface Props{
@@ -25,7 +25,19 @@ export default function({params}:Props) {
 
       {/* SlideShow */}
       <div className="col-span-1 md:col-span-2">
-        hola
+        {/* Mobile SlideShow */}
+        <ProductMobileSlideshow
+          title={product.title}
+          images={product.images}
+          className="block md:hidden"
+        />
+        
+        {/* Desktop SlideShow */}
+        <ProductSlideshow 
+          title={product.title} 
+          images={product.images}
+          className="hidden md:block"
+        />
       </div>
 
       {/* Detalles */}
