@@ -1,9 +1,11 @@
-import { initialData } from "@/seed/seed";
+export const revalidate = 10080;
 
+import { notFound } from "next/navigation";
 
 import { titleFont } from "@/config/fonts";
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
-import { notFound } from "next/navigation";
+import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from "@/components";
+import { getProductBySlug } from "@/actions";
+import { Metadata, ResolvingMetadata } from "next";
 
 interface Props{
   params:{
@@ -11,10 +13,32 @@ interface Props{
   }
 }
 
-export default function ProductBySlugPage ({params}:Props) {
+export async function generateMetadata({ params }: Props,parent: ResolvingMetadata):Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+ 
+  // fetch data
+  const product = await getProductBySlug(slug);
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: product?.title ?? 'Producto no encontrado',
+    description:product?.description ?? '',
+    openGraph: {
+      title: product?.title ?? 'Producto no encontrado',
+      description:product?.description ?? '',
+      images:[`/product/${product?.images[1]}`]
+    },
+  }
+}
+
+export default async function ProductBySlugPage ({params}:Props) {
 
   const { slug } = params;
-  const product = initialData.products.find(product => product.slug === slug);
+  const product = await getProductBySlug(slug);
+  console.log(product)
 
   if(!product){
     notFound();
@@ -42,11 +66,14 @@ export default function ProductBySlugPage ({params}:Props) {
 
       {/* Detalles */}
       <div className="col-span-1 px-5">
+        
+        <StockLabel slug={product.slug}/>
+
         <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
           {product.title}
         </h1>
 
-        <p className="text-lg mb-5">{product?.price}</p>
+        <p className="text-lg mb-5">${product?.price}</p>
 
         {/* Selector de tallas */}
         <SizeSelector 
