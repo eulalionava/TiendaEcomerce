@@ -9,6 +9,8 @@ export * from './ui/footer/Footer';
 
 export * from './ui/pagination/Pagination';
 
+export *  from './provider/Provider';
+
 export * from './product/slideshow/ProductMobileSlideshow';
 export * from './product/slideshow/ProductSlideshow';
 export *  from './product/size-selector/SizeSelector';
