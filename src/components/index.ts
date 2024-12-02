@@ -9,7 +9,11 @@ export * from './ui/footer/Footer';
 
 export * from './ui/pagination/Pagination';
 
-export *  from './provider/Provider';
+export *  from './providers/Provider';
+
+export *  from './paypal/PayPalButton';
+
+export * from './orders/OrderStatus';
 
 export * from './product/slideshow/ProductMobileSlideshow';
 export * from './product/slideshow/ProductSlideshow';
