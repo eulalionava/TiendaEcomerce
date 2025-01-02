@@ -15,6 +15,8 @@ export *  from './paypal/PayPalButton';
 
 export * from './orders/OrderStatus';
 
+export * from './product/product-image/ProductImage';
+
 export * from './product/slideshow/ProductMobileSlideshow';
 export * from './product/slideshow/ProductSlideshow';
 export *  from './product/size-selector/SizeSelector';
