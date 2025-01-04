@@ -42,7 +42,7 @@ const createOrReplaceAddress = async(address:Address,userId:string)=>{
 
         if(!storeAddress){
             const newAddress = await prisma.userAddress.create({
-                data:addressToSave
+                data: addressToSave as any
             });
 
             return newAddress;

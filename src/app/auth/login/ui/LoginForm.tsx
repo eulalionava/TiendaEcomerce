@@ -20,7 +20,7 @@ export const LoginForm = () => {
     router.refresh();
     // window.location.replace('/')
     
-  },[state]);
+  },[state,router]);
 
   return (
     <form action={dispatch} className="flex flex-col">

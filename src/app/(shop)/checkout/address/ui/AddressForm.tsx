@@ -14,7 +14,7 @@ type FormInputs = {
     firstName:string;
     lastName:string;
     address:string;
-    address2?:string ;
+    address2?:string;
     postalCode:string;
     city:string;
     country:string;
@@ -48,7 +48,7 @@ export const AddressForm = ({countries,userStoreAddress={}}:Props) => {
         if(address.firstName){
             reset(address);
         }
-    },[]);
+    },[address,reset]);
 
 
     const onSubmit = async(data:FormInputs)=>{
