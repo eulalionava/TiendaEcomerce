@@ -12,7 +12,7 @@ interface Props{
   searchParams :{
     page?:string
   }
-}
+}  
 
 export default async function OrdersPage({searchParams}:Props) {
 
@@ -64,7 +64,7 @@ export default async function OrdersPage({searchParams}:Props) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   <Link href={`/product/${product.slug}`}>
                     <ProductImage
-                      src={ `/products/${product.ProductImage[0]?.url}`}
+                      src={ product.ProductImage[0]?.url}
                       width={80}
                       height={80}
                       alt={product.title}
