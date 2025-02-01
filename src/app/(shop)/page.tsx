@@ -26,7 +26,7 @@ export default async function Home({searchParams}:Props) {
   return (
     <>
       <Title
-        title="Tienda"
+        title=""
         subtitle="Todos los productos"
         className="mb-2"
       />
